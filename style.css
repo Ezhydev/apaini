@@ -1,0 +1,452 @@
+  :root {
+    --bg1: #fff0f6;
+    --bg2: #ffeef8;
+    --card: rgba(255, 255, 255, 0.7);
+    --glass-blur: 8px;
+    --accent: #ff6fa3;
+    /* soft pink */
+    --accent-2: #ff3b6b;
+    /* deeper pink */
+    --muted: #6b4958;
+    --heart: #ff5876;
+  }
+
+  /* Night version (mood soft dark) */
+  body.night {
+    --bg1: linear-gradient(180deg, #1b1220, #2b1630);
+    --bg2: linear-gradient(180deg, #2b1630, #3a1f3d);
+    --card: rgba(20, 12, 18, 0.6);
+    --accent: #ff8fc0;
+    --accent-2: #ff5c9e;
+    --muted: #f3d6e0;
+    --heart: #ff8aa8;
+  }
+
+  .heart {
+    position: fixed;
+    top: -10px;
+    pointer-events: none;
+    z-index: 999;
+    animation: fall linear forwards;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh);
+      opacity: 0;
+    }
+  }
+
+  #visualizer {
+    width: 100%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-top: 10px;
+  }
+
+  * {
+    box-sizing: border-box
+  }
+
+  html, body {
+    height: 100%
+  }
+
+  body {
+    margin: 0;
+    font-family: Poppins, system-ui, Segoe UI, Arial;
+    background:
+      radial-gradient(800px 400px at 10% 20%, rgba(255, 111, 150, 0.08), transparent 8%),
+      radial-gradient(900px 500px at 90% 80%, rgba(255, 200, 230, 0.06), transparent 10%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    color: var(--muted);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background .6s ease, color .3s ease;
+  }
+
+  /* layout */
+  .wrap {
+    max-width: 1100px;
+    margin: 28px auto;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 18px
+  }
+
+  @media (max-width:980px) {
+    .wrap {
+      grid-template-columns: 1fr;
+      padding: 12px
+    }
+  }
+
+  header.top {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px
+  }
+
+  .logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 22px;
+    font-family: "Dancing Script", cursive;
+    box-shadow: 0 10px 30px rgba(255, 111, 150, 0.12);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: "Dancing Script", cursive;
+    color: var(--heart);
+    font-size: 1.5rem
+  }
+
+  .sub {
+    margin: 0;
+    color: var(--muted);
+    opacity: .95;
+    font-size: .92rem
+  }
+
+  .controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap
+  }
+
+  button, select {
+    cursor: pointer;
+    border: 0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
+    color: var(--muted);
+    font-weight: 600;
+    backdrop-filter: blur(var(--glass-blur));
+    transition: transform .12s
+  }
+
+  button:hover {
+    transform: translateY(-4px)
+  }
+
+  .btn-accent {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: white;
+    box-shadow: 0 10px 30px rgba(255, 111, 150, 0.12)
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2)
+  }
+
+  /* panels (glass) */
+  .panel {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 10px 28px rgba(16, 10, 14, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+  }
+
+  /* hero */
+  .hero {
+    padding: 18px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.12));
+  }
+
+  #typing {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.6rem;
+    color: var(--heart);
+    text-shadow: 0 6px 20px rgba(255, 120, 150, 0.12);
+    min-height: 62px
+  }
+
+  .actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap
+  }
+
+  /* features */
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px
+  }
+
+  @media (max-width:700px) {
+    .grid2 {
+      grid-template-columns: 1fr
+    }
+  }
+
+  .feature {
+    padding: 12px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.04)
+  }
+
+/* Butterflies */
+.butterfly {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 30% 30%, #ff9de2, #d63384);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+  animation: flap 0.5s infinite alternate;
+  z-index: 120;
+}
+
+.butterfly::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: -20px;
+  top: 0;
+  background: radial-gradient(circle at 30% 30%, #ffd6f5, #ff5c9e);
+  border-radius: 50% 50% 0 50%;
+  transform: rotate(-90deg);
+}
+
+@keyframes flap {
+  from { transform: rotate(45deg) scaleX(1); }
+  to   { transform: rotate(45deg) scaleX(0.6); }
+}
+
+  /* ===== Lyrics Section ===== */
+  .lyrics-section {
+    margin: 40px auto;
+    max-width: 700px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .lyrics-box {
+    width: 100%;
+    height: 280px;
+    /* tinggi area lirik */
+    padding: 16px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lyric-header {
+    flex: 0 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .lyric-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #d63384;
+  }
+
+  .lyric-artist {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .lyric-inner {
+    flex: 1 1 auto;
+    overflow-y: hidden;
+    /* biar JS yang scroll */
+  }
+
+  .lyric-pre {
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #333;
+  }
+
+  /* story */
+  .story {
+    padding: 12px;
+    border-radius: 10px;
+    margin: 8px 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    opacity: 0;
+    transform: translateY(18px);
+    transition: .7s
+  }
+
+  .story.visible {
+    opacity: 1;
+    transform: none
+  }
+
+  /* fx layers */
+  #fxLayer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 80
+  }
+
+  .heart-emoji {
+    position: fixed;
+    font-size: 28px;
+    pointer-events: none;
+    animation: fall 5s linear forwards;
+    transform: translateY(-10vh)
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-10vh)
+    }
+
+    100% {
+      transform: translateY(110vh);
+      opacity: 0
+    }
+  }
+
+  .balloon {
+    position: fixed;
+    bottom: -140px;
+    width: 64px;
+    height: 78px;
+    border-radius: 50% 50% 45% 45%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 90
+  }
+
+  .balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -18px;
+    width: 2px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    left: 50%;
+    transform: translateX(-50%)
+  }
+
+  .fw {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 95
+  }
+
+  .spark {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 90;
+    opacity: .95
+  }
+
+  /* small helper */
+  .muted {
+    font-size: .92rem;
+    color: var(--muted)
+  }
+
+  footer {
+    grid-column: 1/-1;
+    text-align: center;
+    margin-top: 6px;
+    color: rgba(0, 0, 0, 0.25)
+  }
+
+
+/* ===== Lyrics Section ===== */
+.lyrics-section {
+  margin: 40px auto;
+  max-width: 700px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.lyrics-box {
+  width: 100%;
+  height: 280px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s ease;
+}
+
+.lyrics-box.empty {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.lyric-header {
+  flex: 0 0 auto;
+  margin-bottom: 10px;
+}
+
+.lyric-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #d63384;
+}
+
+.lyric-artist {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.lyric-inner {
+  flex: 1 1 auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+
+.lyric-pre {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #333;
+}

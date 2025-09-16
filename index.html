@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <title>-- Happy Birthday Bintang</title>
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="heart"></div>
+  <!-- fx -->
+  <div id="fxLayer" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">
+        <div class="logo">♥︎</div>
+        <div>
+          <h1>Selamat ultah Bintang⭐</h1>
+          <p class="sub">sedikit kejutan untukmu, sehat sehat trus ya💖.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="heartRainBtn" class="btn-ghost">💖 Hujan Hati</button>
+        <select id="musicSel" class="btn-ghost">
+          <option value="">Matikan Music</option>
+          <option value="assets/song/to the bone.mp3">to the bone</option>
+          <option value="assets/song/surat-cinta.mp3">surat cinta untuk starla</option>
+          <option value="assets/song/jadiKekasihkuSaja.mp3">Jadi kekasihku saja</option>
+          <option value="assets/song/sempurna.mp3">Sempurna</option>
+          <option value="assets/song/terlalu lama.mp3">terlalu Lama</option>
+          <option value="assets/song/tiba tiba.mp3">Tiba Tiba Cinta Datang</option>
+          <option value="assets/song/januari.mp3">Januari</option>
+          <option value="assets/song/rasa ini.mp3">Rasa Ini</option>
+          <option value="assets/song/dan....mp3">Dan...</option>
+          <audio id="bg-music" loop></audio>
+        </select>
+        <button id="openSecretBtn" class="btn-ghost">💌 Pesan Rahasia</button>
+      </div>
+    </header>
+
+    <!-- left: main -->
+    <main class="panel hero">
+      <div id="typing">—</div>
+      <div class="actions">
+        <button id="retype" class="btn-accent">✍️ Tulis Ulang</button>
+      </div>
+      <div class="glass-card">
+        <h2>🎶 Beat Lagu</h2>
+        <canvas id="visualizer" height="100"></canvas>
+      </div>
+      <div class="grid2">
+        <div class="feature">
+          <h3>❓ Quiz Kenangan</h3>
+          <div id="qText" class="muted">Klik "Mulai" untuk mulai quiz kenangan</div>
+          <div id="qButtons" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"></div>
+          <div id="qResult" style="margin-top:8px;font-weight:700"></div>
+          <div style="margin-top:8px"><button id="startQuiz" class="btn">Mulai Quiz</button></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- right: side -->
+    <aside class="panel">
+      <!-- Bagian Lirik Lagu -->
+      <section class="lyrics-section">
+        <h2>🎶 Reff Lagu</h2>
+        <div id="lyricBox" class="lyrics-box empty">
+          <div class="lyric-header">
+            <div id="lyricSongTitle" class="lyric-title">Judul Lagu</div>
+            <div id="lyricArtist" class="lyric-artist">Artis</div>
+          </div>
+          <div id="lyricInner" class="lyric-inner">
+            <pre id="lyricText" class="lyric-pre">Pilih musik untuk menampilkan lirik 🎵</pre>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <footer style="grid-column:1/-1;text-align:center;color:rgba(0,0,0,0.2);font-size:.92rem">
+      &copy; dibuat oleh. ezy. untuk bintang💖
+    </footer>
+  </div>
+
+  <!-- secret modal -->
+  <div id="secretModal"
+    style="display:none;position:fixed;inset:0;background:rgba(8,4,6,0.6);align-items:center;justify-content:center;z-index:200">
+    <div
+      style="background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.8)); padding:18px;border-radius:14px;max-width:520px;color:#4a2b34;backdrop-filter:blur(8px)">
+      <h3 style="margin-top:0;font-family:'Dancing Script',cursive;color:var(--heart)">💌 Pesan Rahasia</h3>
+      <div id="secretText" class="muted">ini ada beberapa Pesan pesanku untuk kamu.</div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:12px">
+        <button id="modalOpenBtn" class="btn-accent">Buka Surat</button>
+        <button id="modalCloseBtn" class="btn-ghost">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- fx layer -->
+  <div id="fx" style="position:fixed;inset:0;pointer-events:none;z-index:180"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
